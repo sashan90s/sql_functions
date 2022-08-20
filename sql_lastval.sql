@@ -47,5 +47,10 @@ first_value (product_name) over (partition by product_category order by price de
 last_value (product_name) over (partition by product_category order by price desc
 range between unbounded preceding and unbounded following) as leas_exp
 
+/* default for last_value is always 
+range between unbounded preceding and current row
+but we want to change it to the 
+unbounded following*/
+
 from product;
 
